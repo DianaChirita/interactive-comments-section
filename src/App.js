@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+
+import CommentItem from './components/CommentItem';
 
 function App() {
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    fetchComments();
+  }, []);
+
+  const fetchComments = async () => {
+    const response = await fetch(`http://localhost:4000/comments`);
+    const data = await response.json();
+
+    setComments(data);
+  };
+
+  const setCom = () => {};
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        {comments.map((item) => (
+          <CommentItem key={item.id} item={item} />
+        ))}
+      </div>
+    </>
   );
 }
 
