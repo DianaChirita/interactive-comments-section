@@ -18,4 +18,85 @@
 
 body {
   background-color: var(--lightGray);
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 50%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--veryLightGray);
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-text {
+  display: flex;
+}
+
+.username {
+  color: var(--darkBlue);
+  font-weight: 700;
+  margin: 1rem;
+}
+
+.date {
+  color: var(--grayishBlue);
+}
+
+img {
+  height: 2.5rem;
+  margin: 0 0.3rem;
+}
+
+.card-header-right button {
+  border: none;
+  background: inherit;
+  font-weight: 700;
+  margin: 0 0.5rem;
+}
+
+.btn-delete {
+  color: var(--softRed);
+}
+
+.btn-reply {
+  color: var(--moderateBlue);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.card-header-right img {
+  height: 0.8rem;
+}
+
+.card-content p {
+  color: var(--grayishBlue);
+  font-weight: 500;
 }

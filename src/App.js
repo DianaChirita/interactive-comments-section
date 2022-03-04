@@ -19,7 +19,7 @@ function App() {
   const setCom = () => {};
   return (
     <>
-      <div>
+      <div className="container">
         {comments.map((item) => (
           <CommentItem key={item.id} item={item} />
         ))}
