@@ -30,11 +30,12 @@ body {
 
 .container {
   width: 50%;
+  height: 100%;
 }
 
 .card {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   background-color: var(--veryLightGray);
   margin: 1rem 0;
   padding: 1rem;
@@ -68,14 +69,12 @@ body {
   color: var(--grayishBlue);
 }
 
-img {
+.card-header img {
   height: 2.5rem;
   margin: 0 0.3rem;
 }
 
 .card-header-right button {
-  border: none;
-  background: inherit;
   font-weight: 700;
   margin: 0 0.5rem;
 }
@@ -86,6 +85,11 @@ img {
 
 .btn-reply {
   color: var(--moderateBlue);
+}
+
+button {
+  border: none;
+  background: inherit;
 }
 
 button:hover {
@@ -99,4 +103,36 @@ button:hover {
 .card-content p {
   color: var(--grayishBlue);
   font-weight: 500;
+  line-height: 25px;
+}
+
+.card-side {
+  padding: 0.5rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--lightGray);
+  border-radius: 10px;
+}
+
+.card-side p {
+  color: var(--moderateBlue);
+  font-weight: 700;
+}
+
+.header-text > .username {
+  color: var(--darkBlue);
+  font-weight: 700;
+}
+
+.card-group {
+  display: flex;
+}
+
+.replies-bar {
+  width: 0.5rem;
+  margin: 1rem 2.5rem;
+  background: var(--veryLightGray);
 }
