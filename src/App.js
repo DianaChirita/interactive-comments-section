@@ -17,14 +17,29 @@ function App() {
     setComments(data);
   };
 
-  const updateScore = async (id, updatedScore) => {
-    const response = await fetch(`http://localhost:4000/comments/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedScore),
+  const updateScore = async (id, itemToBeUpdated) => {
+    const parentComment = comments.filter((comm) => {
+      if (comm.replies.find((reply) => reply.id === id)) return comm;
     });
+
+    if (parentComment.length > 0) {
+      parentComment[0].replies.map((reply) =>
+        reply.id === id ? { ...reply, ...itemToBeUpdated } : reply
+      );
+
+      itemToBeUpdated = parentComment[0];
+    }
+
+    const response = await fetch(
+      `http://localhost:4000/comments/${itemToBeUpdated.id}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(itemToBeUpdated),
+      }
+    );
 
     const data = await response.json();
 
